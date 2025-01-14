@@ -15,7 +15,9 @@ export default function ProductsPage() {
     }
     setProducts((prev => {
       prev = ProductsDb;
-      return prev.filter((product) => product.name.toLowerCase().includes(value.toLowerCase()) )
+      console.log(value);
+      return prev.filter((product) => 
+        value.onlyInStock === true ? (product.inStock && product.name.toLowerCase().includes(value.search.toLowerCase())) : product.name.toLowerCase().includes(value.search.toLowerCase()))
     }))
   }
   
